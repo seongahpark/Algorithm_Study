@@ -24,4 +24,5 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 + 본인 아이디 이름으로 브런치 생성
   - ex) seongahpark
 + commit message는 자유롭게 작성
-+ Pull Request는 스터디 직전 스터디장이 실행
++ push 완료 후, Git 홈페이지에서 pull request 신청!
++ merge는 스터디 직전 장이 합니다
