@@ -11,12 +11,14 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 ## 폴더 구조
 ```sh
 ├─Week주차
-│  │  README.md
+│  │  주제.md
 │  ├─ 아이디
 │  │      사이트이름_문제번호_아이디.cpp
 │  │      boj_1004_seongahpark.cpp
 │  │      사이트이름_문제번호_아이디.md
 ```
++ 이번 주에 다루는 알고리즘 md 파일로 작성하여 업로드
++ 어려운 문제일 경우 풀이를 남기고 싶다면 따로 md 파일 작성하여 코드와 함께 업로
 ## Commit Rule
 + 본인 아이디 이름으로 브런치 생성
   - ex) seongahpark
