@@ -78,7 +78,7 @@ int main(void) {
 	ShowBFS(BOJgraph, BFSIsvisit, K);
 
 	//동적 할당 후에는 무조건 해제
-	delete BOJgraph;
-	delete DFSIsvisit;
-	delete BFSIsvisit;
+	delete[] BOJgraph;
+	delete[] DFSIsvisit;
+	delete[] BFSIsvisit;
 }
