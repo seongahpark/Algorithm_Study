@@ -8,6 +8,7 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 |경림|[@ohohoi](https://github.com/ohohoi)|
 |보성|[@suha1515](https://github.com/suha1515)|
 |현준|[@hhj3258](https://github.com/hhj3258)|
+|성진|[@Thedum2](https://github.com/Thedum2)|
 
 1) 주 마다 돌아가면서 한 명씩 이번 주 주제 이론에 대해 발표 -> 발표 내용은 깃 허브에 마크다운 파일로 올려주면 같이 보면서 듣기
 2) 저번 주에 풀었던 문제 풀이 공유 및 토의
