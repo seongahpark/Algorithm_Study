@@ -9,6 +9,7 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 |보성|[@suha1515](https://github.com/suha1515)|
 |현준|[@hhj3258](https://github.com/hhj3258)|
 |성진|[@Thedum2](https://github.com/Thedum2)|
+|예리|[@py6578](https://github.com/py6578)|
 
 1) 주 마다 돌아가면서 한 명씩 이번 주 주제 이론에 대해 발표 -> 발표 내용은 깃 허브에 마크다운 파일로 올려주면 같이 보면서 듣기
 2) 저번 주에 풀었던 문제 풀이 공유 및 토의
@@ -19,7 +20,7 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 
 ## 폴더 구조
 ```sh
-├─Week주차
+├─Week주차 (세자리수로 부탁 ex. 011)
 │  │  주제.md
 │  ├─ 아이디
 │  │      사이트이름_문제번호_아이디.cpp
