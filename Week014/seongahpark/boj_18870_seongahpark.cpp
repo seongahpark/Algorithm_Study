@@ -21,7 +21,7 @@ int main() {
 	sort(v2.begin(), v2.end());
 	v2.erase(unique(v2.begin(), v2.end()), v2.end());
 
-	//lower bound·Î ÇØ¾ß ½Ã°£ÃÊ°ú ¾È³²
+	//lower boundë¡œ í’€ì–´ì•¼ ì‹œê°„ì´ˆê³¼ê°€ 
 	for (int i = 0; i < n; i++) {
 		cout << lower_bound(v2.begin(), v2.end(), v[i]) - v2.begin() << " ";
 	}
