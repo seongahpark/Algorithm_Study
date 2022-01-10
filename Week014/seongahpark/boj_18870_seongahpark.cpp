@@ -18,6 +18,7 @@ int main() {
 	}
 	v2 = v;
 	
+	//unique를 사용하려면 반드시 정렬된 상태여야 한다. 
 	sort(v2.begin(), v2.end());
 	v2.erase(unique(v2.begin(), v2.end()), v2.end());
 
