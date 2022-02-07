@@ -1,51 +1,63 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-int N, M;
-vector<int> budget;
+int N, C;
+vector<int> list;
+
+bool check(int dist)
+{
+	int cnt = 1;
+	int prev = list[0];
+
+	for (int i = 1; i < N; i++)
+	{
+		if (list[i] - prev >= dist)
+		{
+			cnt++;
+			prev = list[i];
+		}
+	}
+
+	if (cnt >= C)
+	{
+		return true;
+	}
+	return false;
+}
 
 int main()
 {
 	ios::sync_with_stdio(0);
 	cin.tie(NULL);
 
-	cin >> N;
-	budget.resize(N);
+	cin >> N >> C;
+
+	list.resize(N);
 
 	for (int i = 0; i < N; i++)
 	{
-		cin >> budget[i];
+		cin >> list[i];
 	}
 
-	sort(budget.begin(), budget.end());
+	sort(list.begin(), list.end());
 
-	cin >> M;
+	int low = 0; // ??
+	int high = list[N - 1] - list[0];
+	int result = 0;
 
-	int start = 0;
-	int end = budget[N - 1];
-	int middle, sum, result;
-
-	while (start <= end)
+	while (low <= high)
 	{
-		sum = 0;
-
-		middle = (start + end) / 2;
-
-		for (int i = 0; i < N; i++)
+		int mid = (low + high) / 2;
+		if (check(mid))
 		{
-			sum += min(budget[i], middle);
-		}
-
-		if (M >= sum) // less than total budget
-		{
-			result = middle;
-			start = middle + 1;
+			result = max(result, mid);
+			low = mid + 1;
 		}
 		else
 		{
-			end = middle - 1;
+			high = mid - 1;
 		}
 	}
 
