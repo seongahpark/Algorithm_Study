@@ -24,8 +24,8 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 ├─Week주차 (세자리수로 부탁 ex. 011)
 │  │  주제.md
 │  ├─ 아이디
-│  │      사이트이름_문제번호_아이디.cpp
-│  │      boj_1004_seongahpark.cpp
+│  │      [A-F번호]사이트이름_문제번호_아이디.cpp
+│  │      [A]boj_1004_seongahpark.cpp
 │  │      사이트이름_문제번호_아이디.md
 ```
 + 이번 주에 다루는 알고리즘 md 파일로 작성하여 업로드
