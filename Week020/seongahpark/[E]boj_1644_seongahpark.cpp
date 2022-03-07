@@ -1,36 +1,36 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <cmath> //sqrt »ç¿ë
+#include <cmath> //sqrt ì‚¬ìš©
 using namespace std;
 
-const int MAX = 400000;
+const int MAX = 4000000;
 
 int n, sum;
 int arr[MAX+1];
-vector<int> p; //prime_num ÀúÀå
+vector<int> p; //prime_num ì €ì¥
 vector<int> v; 
 int main() {
 	cin >> n;
-	v.push_back(0); //±âº»°ª
+	v.push_back(0); //ê¸°ë³¸ê°’
 
-	// ¿¡¶óÅä½ºÅ×³×½ºÀÇ Ã¼ - ¼Ò¼ö ±¸ÇÏ´Â ¾Ë°í¸®Áò
+	// ì—ë¼í† ìŠ¤í…Œë„¤ìŠ¤ì˜ ì²´ - ì†Œìˆ˜ êµ¬í•˜ëŠ” ì•Œê³ ë¦¬ì¦˜
 	for (int i = 2; i < sqrt(MAX); i++) {
 		for (int j = i * 2; j <= MAX; j += i) {
-			arr[j] = 1; //¼Ò¼ö X
+			arr[j] = 1; //ì†Œìˆ˜ X
 		}
 	}
 	for (int i = 2; i <= MAX; i++) {
-		if (!arr[i]) { // ¼Ò¼öµéÀÇ ±¸°£ÇÕ
+		if (!arr[i]) { // ì†Œìˆ˜ë“¤ì˜ êµ¬ê°„í•©
 			sum += i;
 			v.push_back(sum);
 		}
 	}
 
-	// Åõ Æ÷ÀÎÅÍ
+	// íˆ¬ í¬ì¸í„°
 	int res = 0, left = 0, right = 0;
 	while (left <= right && right < v.size()) {
-		//¿À¸¥ÂÊÀ¸·Î °è¼Ó ÀÌµ¿ÇÏ¸é¼­ nÀ» ¸¸Á·ÇÏ´Â ±¸°£ÇÕ °³¼ö ¼À
+		//ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê³„ì† ì´ë™í•˜ë©´ì„œ nì„ ë§Œì¡±í•˜ëŠ” êµ¬ê°„í•© ê°œìˆ˜ ì…ˆ
 		if (v[right] - v[left] > n) left++;
 		else if (v[right] - v[left] < n) right++;
 		else {
