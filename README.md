@@ -1,16 +1,22 @@
 # Algorithm_Study
 c++ Algorithm Study (Every Mon 9 p.m.)
 
-## Contributor
+## Current Member
+
 |이름|GitHub|
 |---|---|
 |성아|[@seongahpark](https://github.com/seongahpark)|
-|경림|[@ohohoi](https://github.com/ohohoi)|
-|보성|[@suha1515](https://github.com/suha1515)|
-|현준|[@hhj3258](https://github.com/hhj3258)|
-|성진|[@Thedum2](https://github.com/Thedum2)|
-|예리|[@py6578](https://github.com/py6578)|
 |정민|[@happyOBO](https://github.com/happyOBO)|
+|세환|[@dochigrammer](https://github.com/dochigrammer)|
+
+## Contributor
+
+|이름|GitHub|이름|Github|
+|---|---|---|---|
+|성아|[@seongahpark](https://github.com/seongahpark)|경림|[@ohohoi](https://github.com/ohohoi)|
+|보성|[@suha1515](https://github.com/suha1515)|현준|[@hhj3258](https://github.com/hhj3258)|
+|성진|[@Thedum2](https://github.com/Thedum2)|예리|[@py6578](https://github.com/py6578)|
+|정민|[@happyOBO](https://github.com/happyOBO)|세환|[@dochigrammer](https://github.com/dochigrammer)|
 
 1) 주 마다 돌아가면서 한 명씩 이번 주 주제 이론에 대해 발표 -> 발표 내용은 깃 허브에 마크다운 파일로 올려주면 같이 보면서 듣기
 2) 저번 주에 풀었던 문제 풀이 공유 및 토의
@@ -30,6 +36,7 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 ```
 + 이번 주에 다루는 알고리즘 md 파일로 작성하여 업로드
 + 어려운 문제일 경우 풀이를 남기고 싶다면 따로 md 파일 작성하여 코드와 함께 업로드
++ 
 ## Commit Rule
 + 꼭 pull 먼저 하기!
 + 본인 아이디 이름으로 브런치 생성
