@@ -2,46 +2,59 @@
 
 using namespace std;
 
+void solution(vector<pair<int, int>>& points);
+int getArea(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3);
 
 int main() {
-    vector<int> sides(6);
-    int countPerArea;
-    map<int, vector<int>> idxFrequency = { {1,{}},{2,{}},{3,{}},{4,{}} };
-    int s1, s2;
-    s1 = s2 = -1;
-    cin >> countPerArea;
 
-    int arrow, side;
-    for (int i = 0; i < 6; i++)
-    {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
 
-        cin >> arrow >> side;
-        idxFrequency[arrow].push_back(i);
-        sides[i] = side;
-    }
-    for (int i = 0; i < 6; i++)
+    int N;
+    cin >> N;
+
+    vector<pair<int, int>> points;
+
+    pair<int, int> p;
+    for (int i = 0; i < N; i++)
     {
-        if (idxFrequency[i].size() == 1)
-        {
-            if (s1 == -1)
-                s1 = idxFrequency[i][0];
-            else
-                s2 = idxFrequency[i][0];
-        }
+        cin >> p.first >> p.second;
+        points.push_back(p);
     }
-    int area;
-    if ( (s1 + 5) % 6 == s2)
-    {
-        area = sides[s1] * sides[s2] - (sides[(s1 + 2) % 6] * sides[(s2 + 4) % 6]);
-    }
-    else
-    {
-        area = sides[s1] * sides[s2] - (sides[(s2 + 2) % 6] * sides[(s1 + 4) % 6]);
-    }
-     
-    cout << area * countPerArea;
+    solution(points);
+
 
     return 0;
 }
 
+
+void solution(vector<pair<int, int>>& points)
+{
+
+    int result = 0.0;
+
+    for (int i = 0; i < points.size(); i++)
+    {
+        for (int j = i+1; j < points.size(); j++)
+        {
+            for (int k = j + 1; k < points.size(); k++)
+            {
+                result = max(result, getArea(points[i], points[j], points[k]));
+            }
+        }
+    }
+
+    if (result % 2 == 1)
+        cout << result / 2 << ".5";
+    else
+        cout << result / 2 << ".0";
+}
+
+ 
+int getArea(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3)
+{
+    return abs(((p1.first * p2.second + p2.first * p3.second + p3.first * p1.second) - 
+        (p2.first * p1.second + p3.first * p2.second + p1.first * p3.second)));
+}
 
