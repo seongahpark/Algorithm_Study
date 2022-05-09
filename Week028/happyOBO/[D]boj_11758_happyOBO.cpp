@@ -1,60 +1,53 @@
 #include <bits/stdc++.h>
 
+
 using namespace std;
 
-void solution(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4);
-bool isParallel(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4);
-bool isSame(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4);
+struct Vector;
+void solution(Vector v1, Vector v2);
+Vector crossProduct(Vector v1, Vector v2);
 
+struct Vector
+{
+	Vector(int x, int y, int z)
+	{
+		X = x;
+		Y = y;
+		Z = z;
+	}
+	int X;
+	int Y;
+	int Z;
+};
 
-int main() {
+int main()
+{
+	pair<int, int> p1, p2, p3;
+	cin >> p1.first >> p1.second;
+	cin >> p2.first >> p2.second;
+	cin >> p3.first >> p3.second;
 
-    int N;
-    cin >> N;
-    pair<int, int> p1, p2, p3, p4;
-    for (int i = 0; i < N; i++)
-    {
-        cin>> p1.first >> p1.second >> p2.first >> p2.second >> p3.first >> p3.second >> p4.first >> p4.second;
-        solution(p1,p2,p3,p4);
-    }
+	Vector v1 = Vector(p2.first - p1.first, p2.second - p1.second, 0);
+	Vector v2 = Vector(p2.first - p3.first, p2.second - p3.second, 0);
 
-
-    return 0;
+	solution(v1, v2);
 }
 
 
-void solution(pair<int,int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4)
+void solution(Vector v1, Vector v2)
 {
-    if (isParallel(p1, p2, p3, p4))
-    {
-        if (isSame(p1, p2, p3, p4))
-        {
-            printf("LINE\n");
-        }
-        else
-        {
-            printf("NONE\n");
-        }
-    }
-    else
-    {
-        float numeratorX = (p1.first * p2.second - p1.second * p2.first) * (p3.first - p4.first) - (p1.first - p2.first) * (p3.first * p4.second - p3.second * p4.first);
-        float denominatorX = (p1.first - p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first - p4.first);
-
-        float numeratorY = (p1.first * p2.second - p1.second * p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first * p4.second - p3.second * p4.first);
-        float denominatorY = (p1.first - p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first - p4.first);
-
-        printf("POINT %.2f %.2f\n", numeratorX / denominatorX, numeratorY / denominatorY);
-
-    }
+	Vector result = crossProduct(v1, v2);
+	if (result.Z > 0) cout << -1;
+	else if (result.Z < 0) cout << 1;
+	else cout << 0;
 }
 
-bool isParallel(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4)
+Vector crossProduct(Vector v1, Vector v2)
 {
-    return (p1.first - p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first - p4.first) == 0;
-}
+	return Vector(
+		v1.Y * v2.Z - v2.Y * v1.Z,
+		v1.Z * v2.X - v2.Z * v1.X,
+		v1.X * v2.Y - v2.X * v1.Y
+	);
 
-bool isSame(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4)
-{
-    return (p1.first - p2.first) * (p3.second - p1.second) == (p1.second - p2.second) * (p3.first - p1.first);
 }
