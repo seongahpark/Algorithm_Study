@@ -2,59 +2,59 @@
 
 using namespace std;
 
-void solution(vector<pair<int, int>>& points);
-int getArea(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3);
+void solution(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4);
+bool isParallel(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4);
+bool isSame(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4);
+
 
 int main() {
 
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
     int N;
     cin >> N;
-
-    vector<pair<int, int>> points;
-
-    pair<int, int> p;
+    pair<int, int> p1, p2, p3, p4;
     for (int i = 0; i < N; i++)
     {
-        cin >> p.first >> p.second;
-        points.push_back(p);
+        cin>> p1.first >> p1.second >> p2.first >> p2.second >> p3.first >> p3.second >> p4.first >> p4.second;
+        solution(p1,p2,p3,p4);
     }
-    solution(points);
 
 
     return 0;
 }
 
 
-void solution(vector<pair<int, int>>& points)
+void solution(pair<int,int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4)
 {
-
-    int result = 0.0;
-
-    for (int i = 0; i < points.size(); i++)
+    if (isParallel(p1, p2, p3, p4))
     {
-        for (int j = i+1; j < points.size(); j++)
+        if (isSame(p1, p2, p3, p4))
         {
-            for (int k = j + 1; k < points.size(); k++)
-            {
-                result = max(result, getArea(points[i], points[j], points[k]));
-            }
+            printf("LINE\n");
+        }
+        else
+        {
+            printf("NONE\n");
         }
     }
-
-    if (result % 2 == 1)
-        cout << result / 2 << ".5";
     else
-        cout << result / 2 << ".0";
+    {
+        float numeratorX = (p1.first * p2.second - p1.second * p2.first) * (p3.first - p4.first) - (p1.first - p2.first) * (p3.first * p4.second - p3.second * p4.first);
+        float denominatorX = (p1.first - p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first - p4.first);
+
+        float numeratorY = (p1.first * p2.second - p1.second * p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first * p4.second - p3.second * p4.first);
+        float denominatorY = (p1.first - p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first - p4.first);
+
+        printf("POINT %.2f %.2f\n", numeratorX / denominatorX, numeratorY / denominatorY);
+
+    }
 }
 
- 
-int getArea(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3)
+bool isParallel(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4)
 {
-    return abs(((p1.first * p2.second + p2.first * p3.second + p3.first * p1.second) - 
-        (p2.first * p1.second + p3.first * p2.second + p1.first * p3.second)));
+    return (p1.first - p2.first) * (p3.second - p4.second) - (p1.second - p2.second) * (p3.first - p4.first) == 0;
 }
 
+bool isSame(pair<int, int>& p1, pair<int, int>& p2, pair<int, int>& p3, pair<int, int>& p4)
+{
+    return (p1.first - p2.first) * (p3.second - p1.second) == (p1.second - p2.second) * (p3.first - p1.first);
+}
