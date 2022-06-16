@@ -8,6 +8,7 @@ c++ Algorithm Study (Every Mon 9 p.m.)
 |성아|[@seongahpark](https://github.com/seongahpark)|
 |정민|[@happyOBO](https://github.com/happyOBO)|
 |세환|[@dochigrammer](https://github.com/dochigrammer)|
+|현준|[@hhj3258](https://github.com/hhj3258)|
 
 ## Contributor
 
